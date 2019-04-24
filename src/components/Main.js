@@ -1,9 +1,11 @@
 import React from 'react';
 import Target from './Target';
+import EditForm from './Form';
 
 const Main = props => {
   return (
-    <div>
+    <div className="mainContainer">
+      <h2>Inbound Leads</h2>
       <ul>
         {props.targets.map((item, index) => {
           return (
@@ -12,9 +14,8 @@ const Main = props => {
               item={item}
               isClicked={props.isClicked}
               clickedItem={props.clickedItem}
-              company_name={item.company_name}
-              company_phone_number={item.company_phone_number}
-              company_address={item.company_address}
+              isEditing={props.isEditing}
+              handleEditClick={props.handleEditClick}
               handleTargetClick={(item, index) => {
                 props.handleTargetClick(item, index);
               }}
@@ -22,6 +23,7 @@ const Main = props => {
           );
         })}
       </ul>
+      <EditForm isEditing={props.isEditing} modalClass={props.modalClass} />
     </div>
   );
 };

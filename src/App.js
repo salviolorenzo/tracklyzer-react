@@ -10,7 +10,9 @@ export default class App extends Component {
     this.state = {
       targets: companies.data,
       isClicked: false,
-      clickedItem: {}
+      clickedItem: {},
+      isEditing: false,
+      modalClass: 'modal noDisplay'
     };
   }
 
@@ -31,6 +33,16 @@ export default class App extends Component {
     }
   }
 
+  handleEditClick(event) {
+    event.preventDefault();
+    if (this.state.isEditing === false) {
+      this.setState({
+        isEditing: true,
+        modalClass: 'modal'
+      });
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -39,7 +51,10 @@ export default class App extends Component {
           clickedItem={this.state.clickedItem}
           isClicked={this.state.isClicked}
           targets={this.state.targets}
+          isEditing={this.state.isEditing}
+          modalClass={this.state.modalClass}
           handleTargetClick={this.handleTargetClick.bind(this)}
+          handleEditClick={this.handleEditClick.bind(this)}
         />
       </div>
     );

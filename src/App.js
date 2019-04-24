@@ -8,7 +8,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      targets: companies.data
+      targets: companies.data,
+      isClicked: false,
+      clickedItem: {}
     };
   }
 
@@ -16,11 +18,29 @@ export default class App extends Component {
     console.log(companies);
   }
 
+  handleTargetClick(item, index) {
+    if (this.state.isClicked === true && this.state.clickedItem !== item) {
+      this.setState({
+        clickedItem: item
+      });
+    } else {
+      this.setState({
+        isClicked: !this.state.isClicked,
+        clickedItem: item
+      });
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Main targets={this.state.targets} />
+        <Main
+          clickedItem={this.state.clickedItem}
+          isClicked={this.state.isClicked}
+          targets={this.state.targets}
+          handleTargetClick={this.handleTargetClick.bind(this)}
+        />
       </div>
     );
   }

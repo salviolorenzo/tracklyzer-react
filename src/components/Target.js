@@ -1,5 +1,6 @@
 import React from 'react';
 import ExtendedInfo from './ExtendedInfo';
+import Performance from './Performance';
 import { Route, Link } from 'react-router-dom';
 
 const statusColor = status => {
@@ -59,8 +60,18 @@ const Target = props => {
           <Link to="/performance">Performance</Link>
         </li>
       </ul>
-      <Route />
-      <ExtendedInfo item={props.item} />
+      <Route
+        path="/information"
+        render={routeProps => {
+          return <ExtendedInfo item={props.item} {...props} />;
+        }}
+      />
+      <Route
+        path="/performance"
+        render={routeProps => {
+          return <Performance item={props.item} {...props} />;
+        }}
+      />
       <div className="buttonContainer">
         <button
           onClick={event => {

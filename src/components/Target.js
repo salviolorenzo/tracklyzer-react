@@ -89,9 +89,18 @@ const Target = props => {
             props.handleEditClick(event);
           }}
           type="button"
-          className="editBtn"
+          className="btn editBtn"
         >
           Edit
+        </button>
+        <button
+          onClick={event => {
+            props.handleItemDelete(event);
+          }}
+          type="button"
+          className="btn delBtn"
+        >
+          Delete
         </button>
       </div>
     </li>

@@ -19,6 +19,7 @@ const Main = props => {
               handleTargetClick={(item, index) => {
                 props.handleTargetClick(item, index);
               }}
+              handleItemDelete={props.handleItemDelete}
             />
           );
         })}
@@ -30,7 +31,7 @@ const Main = props => {
         closeModal={props.closeModal}
         formValues={props.formValues}
         handleInputChange={props.handleInputChange}
-        handleEditSubmit={props.handleEditSubmit}
+        handleSubmit={props.handleSubmit}
       />
     </div>
   );

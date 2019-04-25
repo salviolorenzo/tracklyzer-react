@@ -7,7 +7,7 @@ const EditForm = props => {
       <form
         className={props.modalFormClass}
         onSubmit={event => {
-          props.handleEditSubmit(event);
+          props.handleSubmit(event);
         }}
       >
         <div className="modalHeader">

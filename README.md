@@ -1,4 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tracklyzer
+
+## Necessary Capabilities
+
+- Pull in and view mock data, create list items for each entry.
+- Edit list items.
+- Add list item.
+- Remove list item.
+
+### Stretch Goals
+
+- Display performance data with Chart.js
+
+---
 
 ## Available Scripts
 

@@ -31,7 +31,7 @@
     z-index: -1;
   }
   to {
-    top: 0;
+    top: 100;
     z-index: 3;
   }
 }
@@ -107,7 +107,7 @@ header {
 }
 
 .target {
-  padding: 5px 10px;
+  padding: 0 10px 20px 10px;
   width: 100%;
   border-radius: 5px;
   margin: 5px 0;
@@ -166,6 +166,7 @@ header {
 
     & > div > div {
       padding: 0 10px;
+      font-size: 14px;
     }
   }
 
@@ -216,33 +217,87 @@ header {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
   z-index: 2;
-  animation: fadeIn 0.25s ease-in-out;
+  // animation: fadeIn 0.25s ease-in-out;
+  // animation-delay: 0.25s;
 
   .editForm {
     width: 90%;
+    border-top: 5px solid rgb(0, 140, 255);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
     position: fixed;
-    top: 150px;
-    background-color: white;
+    top: 25px;
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     z-index: 3;
     animation: slideDown 0.25s ease-in-out;
-    animation-delay: 0.25s;
+    // animation-delay: 0.25s;
 
-    input {
+    h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    input,
+    select {
+      background-color: white;
       margin: 5px 0;
+      width: 90%;
+      border-radius: 5px;
+      border-top: none;
+      border-right: none;
+      padding: 5px;
+      border-bottom: 0.5px solid rgb(193, 193, 193);
+      border-left: 0.5px solid rgb(193, 193, 193);
+    }
+
+    label {
+      color: rgb(80, 80, 80);
+      width: 90%;
+      text-align: start;
     }
 
     button {
       margin: 10px 0;
+      background-color: rgb(0, 140, 255);
+      width: 70%;
+      border-radius: 10px;
+      color: white;
+      font-weight: 700;
+      padding: 5px;
+      box-shadow: 0 0 10px 0 rgba(255, 255, 255, 1);
+
+      &:active {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+      }
     }
 
-    & > label > label {
+    .sectionLabel {
+      font-size: 14px;
+    }
+
+    .subLabel {
       font-size: 12px;
     }
   }
+
+  .modalHeader {
+    height: 25px;
+    img {
+      position: absolute;
+      width: 20px;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}
+
+.initialPosition {
+  top: -500px;
 }
 
 .noDisplay {

@@ -23,7 +23,15 @@ const Main = props => {
           );
         })}
       </ul>
-      <EditForm isEditing={props.isEditing} modalClass={props.modalClass} />
+      <EditForm
+        isEditing={props.isEditing}
+        modalClass={props.modalClass}
+        modalFormClass={props.modalFormClass}
+        closeModal={props.closeModal}
+        formValues={props.formValues}
+        handleInputChange={props.handleInputChange}
+        handleEditSubmit={props.handleEditSubmit}
+      />
     </div>
   );
 };

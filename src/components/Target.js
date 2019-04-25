@@ -1,4 +1,6 @@
 import React from 'react';
+import ExtendedInfo from './ExtendedInfo';
+import { Route, Link } from 'react-router-dom';
 
 const statusColor = status => {
   let bgColor;
@@ -49,40 +51,16 @@ const Target = props => {
           {props.item.company_address}
         </div>
       </div>
-      <div className="extendedInfo">
-        <div>
-          <h4>Main Contact</h4>
-          <div>{props.item.main_contact_name}</div>
-          <div>
-            <a href={`tel:${props.item.main_contact_phone}`}>
-              <i className="icons fas fa-mobile-alt" />
-              {props.item.main_contact_phone}
-            </a>
-          </div>
-          <div>
-            <a href={`mailto:${props.item.main_contact_phone}`}>
-              <i className="icons fas fa-at" />
-              {props.item.main_contact_email}
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4>Secondary Contact</h4>
-          <div>{props.item.secondary_contact_name}</div>
-          <div>
-            <a href={`tel:${props.item.main_contact_phone}`}>
-              <i className="icons fas fa-mobile-alt" />
-              {props.item.secondary_contact_phone}
-            </a>
-          </div>
-          <div>
-            <a href={`mailto:${props.item.main_contact_phone}`}>
-              <i className="icons fas fa-at" />
-              {props.item.secondary_contact_email}
-            </a>
-          </div>
-        </div>
-      </div>
+      <ul className="infoLinks">
+        <li>
+          <Link to="/information">Information</Link>
+        </li>
+        <li>
+          <Link to="/performance">Performance</Link>
+        </li>
+      </ul>
+      <Route />
+      <ExtendedInfo item={props.item} />
       <div className="buttonContainer">
         <button
           onClick={event => {

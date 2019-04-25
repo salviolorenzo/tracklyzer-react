@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import Main from './components/Main';
 import './App.scss';
@@ -174,24 +175,26 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header handleNewItem={this.handleNewItem.bind(this)} />
-        <Main
-          clickedItem={this.state.clickedItem}
-          isClicked={this.state.isClicked}
-          targets={this.state.targets}
-          isEditing={this.state.isEditing}
-          modalClass={this.state.modalClass}
-          modalFormClass={this.state.modalFormClass}
-          handleTargetClick={this.handleTargetClick.bind(this)}
-          handleEditClick={this.handleEditClick.bind(this)}
-          closeModal={this.closeModal.bind(this)}
-          formValues={this.state.formValues}
-          handleInputChange={this.handleInputChange.bind(this)}
-          handleSubmit={this.handleSubmit.bind(this)}
-          handleItemDelete={this.handleItemDelete.bind(this)}
-        />
-      </div>
+      <Router>
+        <div className="App">
+          <Header handleNewItem={this.handleNewItem.bind(this)} />
+          <Main
+            clickedItem={this.state.clickedItem}
+            isClicked={this.state.isClicked}
+            targets={this.state.targets}
+            isEditing={this.state.isEditing}
+            modalClass={this.state.modalClass}
+            modalFormClass={this.state.modalFormClass}
+            handleTargetClick={this.handleTargetClick.bind(this)}
+            handleEditClick={this.handleEditClick.bind(this)}
+            closeModal={this.closeModal.bind(this)}
+            formValues={this.state.formValues}
+            handleInputChange={this.handleInputChange.bind(this)}
+            handleSubmit={this.handleSubmit.bind(this)}
+            handleItemDelete={this.handleItemDelete.bind(this)}
+          />
+        </div>
+      </Router>
     );
   }
 }

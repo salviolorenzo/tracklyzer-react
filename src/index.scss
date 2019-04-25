@@ -3,13 +3,13 @@
     height: 100px;
   }
   to {
-    height: 375px;
+    height: 400px;
   }
 }
 
 @keyframes contractDiv {
   from {
-    height: 375px;
+    height: 400px;
   }
   to {
     height: 100px;
@@ -150,6 +150,20 @@ header {
     padding: 5px;
   }
 
+  .infoLinks {
+    display: inherit;
+    flex-direction: row;
+    width: 100%;
+    padding: 5px 0;
+    border-top: 0.5px solid rgb(193, 193, 193);
+    justify-content: space-evenly;
+
+    li {
+      padding: 5px;
+      border-radius: 10px;
+    }
+  }
+
   .basicInfo,
   .extendedInfo {
     display: inherit;
@@ -225,7 +239,7 @@ header {
 }
 
 .expandedLi {
-  height: 375px;
+  height: 400px;
   animation: expandDiv 0.3s ease-in-out;
 }
 

@@ -94,7 +94,6 @@ export default class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target);
     let targets = this.state.targets;
     const editedItem = {
       id: this.state.isEditing ? this.state.clickedItem.id : uuidv1(), //normally this would be handled by the DB id incrementing. UUID is used in place of it for the front-end only assignment
@@ -114,7 +113,7 @@ export default class App extends Component {
     for (let target of targets) {
       if (target.id === editedItem.id) {
         targets.splice(targets.indexOf(target), 1, editedItem);
-      } else {
+      } else if (targets.indexOf(editedItem) === -1) {
         targets.push(editedItem);
         break;
       }

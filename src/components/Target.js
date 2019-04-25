@@ -12,7 +12,7 @@ const statusColor = status => {
       break;
 
     default:
-      bgColor = 'rgb(0, 140, 255)';
+      bgColor = 'rgba(0, 140, 255, 0.7)';
       break;
   }
 

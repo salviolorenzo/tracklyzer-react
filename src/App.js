@@ -27,12 +27,26 @@ export default class App extends Component {
         secondary_contact_name: '',
         secondary_contact_phone: '',
         secondary_contact_email: ''
-      }
+      },
+      isMobile: true
     };
   }
 
   componentDidMount() {
-    console.log(companies);
+    this.resize();
+    window.addEventListener('resize', this.resize.bind(this));
+  }
+
+  resize() {
+    if (window.innerWidth > 600) {
+      this.setState({
+        isMobile: false
+      });
+    } else {
+      this.setState({
+        isMobile: true
+      });
+    }
   }
 
   handleTargetClick(item) {
@@ -195,6 +209,7 @@ export default class App extends Component {
             isEditing={this.state.isEditing}
             modalClass={this.state.modalClass}
             modalFormClass={this.state.modalFormClass}
+            isMobile={this.state.isMobile}
             handleTargetClick={this.handleTargetClick.bind(this)}
             handleEditClick={this.handleEditClick.bind(this)}
             closeModal={this.closeModal.bind(this)}

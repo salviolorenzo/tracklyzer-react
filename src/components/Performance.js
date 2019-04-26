@@ -66,7 +66,7 @@ const Performance = props => {
   return (
     <div className="performanceChart">
       <LineChart
-        width={300}
+        width={275}
         height={250}
         data={data}
         margin={{

@@ -15,6 +15,7 @@ const Main = props => {
               isClicked={props.isClicked}
               clickedItem={props.clickedItem}
               isEditing={props.isEditing}
+              isMobile={props.isMobile}
               handleEditClick={props.handleEditClick}
               handleTargetClick={(item, index) => {
                 props.handleTargetClick(item, index);

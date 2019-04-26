@@ -20,6 +20,7 @@ const Main = props => {
                 props.handleTargetClick(item, index);
               }}
               handleItemDelete={props.handleItemDelete}
+              handleTargetShrink={props.handleTargetShrink}
             />
           );
         })}

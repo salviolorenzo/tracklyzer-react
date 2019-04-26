@@ -14,7 +14,6 @@ export default class App extends Component {
       isClicked: false,
       clickedItem: {},
       isEditing: false,
-      isNew: false,
       modalClass: 'modal noDisplay',
       modalFormClass: 'editForm initialPosition',
       formValues: {
@@ -36,17 +35,28 @@ export default class App extends Component {
     console.log(companies);
   }
 
-  handleTargetClick(item, index) {
+  handleTargetClick(item) {
     if (this.state.isClicked === true && this.state.clickedItem !== item) {
       this.setState({
         clickedItem: item
       });
+    } else if (
+      this.state.isClicked === true &&
+      this.state.clickedItem === item
+    ) {
     } else {
       this.setState({
         isClicked: !this.state.isClicked,
         clickedItem: item
       });
     }
+  }
+
+  handleTargetShrink(item) {
+    this.setState({
+      isClicked: !this.state.isClicked,
+      clickedItem: {}
+    });
   }
 
   handleEditClick(event) {
@@ -192,6 +202,7 @@ export default class App extends Component {
             handleInputChange={this.handleInputChange.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}
             handleItemDelete={this.handleItemDelete.bind(this)}
+            handleTargetShrink={this.handleTargetShrink.bind(this)}
           />
         </div>
       </Router>

@@ -49,6 +49,26 @@ const ExtendedInfo = props => {
           </a>
         </div>
       </div>
+      <div className="buttonContainer">
+        <button
+          onClick={event => {
+            props.handleEditClick(event);
+          }}
+          type="button"
+          className="btn editBtn"
+        >
+          Edit
+        </button>
+        <button
+          onClick={event => {
+            props.handleItemDelete(event);
+          }}
+          type="button"
+          className="btn delBtn"
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

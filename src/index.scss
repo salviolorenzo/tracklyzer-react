@@ -3,13 +3,13 @@
     height: 100px;
   }
   to {
-    height: 400px;
+    height: 450px;
   }
 }
 
 @keyframes contractDiv {
   from {
-    height: 400px;
+    height: 450px;
   }
   to {
     height: 100px;
@@ -115,6 +115,7 @@ header {
   display: flex;
   // flex-wrap: nowrap;
   flex-direction: column;
+  align-items: center;
   border-bottom: 0.5px solid rgb(193, 193, 193);
 
   h3 {
@@ -147,7 +148,6 @@ header {
 
   .basicInfo {
     min-height: 100px;
-    padding: 5px;
   }
 
   .infoLinks {
@@ -168,24 +168,38 @@ header {
   .extendedInfo {
     display: inherit;
     flex-direction: column;
+    width: 100%;
+    padding: 0 10px;
   }
 
   .extendedInfo {
     margin: 0 15px;
 
-    & > div {
+    & > div:first-child {
       padding-bottom: 5px;
       border-bottom: 0.5px solid rgb(193, 193, 193);
+    }
 
-      &:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
+    & > div {
+      padding: 5px;
     }
 
     & > div > div {
       padding: 0 10px;
       font-size: 14px;
+    }
+  }
+
+  .performanceChart {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 5px 0;
+    tspan {
+      font-size: 0.7em;
     }
   }
 
@@ -224,6 +238,31 @@ header {
     }
   }
 
+  .shrinkButton {
+    display: flex;
+    justify-content: center;
+    width: 99%;
+    border-radius: 5px;
+
+    & > i {
+      font-size: 20px;
+    }
+
+    &:hover {
+      color: rgba(0, 140, 255, 0.8);
+      cursor: pointer;
+      transform: scale(1.05);
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+      transition: transform 0.25s;
+      transition: color 0.25s;
+      transition: box-shadow 0.25s;
+    }
+  }
+}
+
+.standardLi {
+  height: 100px;
+  animation: contractDiv 0.3s ease-in-out;
   &:hover {
     transform: scale(1.025);
     transition: transform 0.15s;
@@ -233,13 +272,8 @@ header {
   }
 }
 
-.standardLi {
-  height: 100px;
-  animation: contractDiv 0.3s ease-in-out;
-}
-
 .expandedLi {
-  height: 400px;
+  height: 450px;
   animation: expandDiv 0.3s ease-in-out;
 }
 

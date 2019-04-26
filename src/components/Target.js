@@ -1,7 +1,7 @@
 import React from 'react';
 import ExtendedInfo from './ExtendedInfo';
 import Performance from './Performance';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink, Redirect } from 'react-router-dom';
 
 const statusColor = status => {
   let bgColor;
@@ -23,6 +23,13 @@ const statusColor = status => {
 };
 
 const Target = props => {
+  const activeLinkStyle = {
+    backgroundColor: 'rgba(0, 140, 255, 0.7)',
+    color: 'white',
+    padding: '5px 10px',
+    borderRadius: '20px'
+  };
+
   return (
     <li
       onClick={() => {
@@ -54,43 +61,50 @@ const Target = props => {
       </div>
       <ul className="infoLinks">
         <li>
-          <Link to="/information">Information</Link>
+          <NavLink
+            onClick={props.handleClickedLink}
+            to="/information"
+            activeStyle={activeLinkStyle}
+          >
+            Information
+          </NavLink>
         </li>
         <li>
-          <Link to="/performance">Performance</Link>
+          <NavLink
+            onClick={props.handleClickedLink}
+            to="/performance"
+            activeStyle={activeLinkStyle}
+          >
+            Performance
+          </NavLink>
         </li>
       </ul>
       <Route
         path="/information"
         render={routeProps => {
-          return <ExtendedInfo item={props.item} {...props} />;
+          return (
+            <ExtendedInfo
+              item={props.item}
+              handleEditClick={props.handleEditClick}
+              handleItemDelete={props.handleItemDelete}
+              {...props}
+            />
+          );
         }}
       />
+
       <Route
         path="/performance"
         render={routeProps => {
           return <Performance item={props.item} {...props} />;
         }}
       />
-      <div className="buttonContainer">
-        <button
-          onClick={event => {
-            props.handleEditClick(event);
-          }}
-          type="button"
-          className="btn editBtn"
-        >
-          Edit
-        </button>
-        <button
-          onClick={event => {
-            props.handleItemDelete(event);
-          }}
-          type="button"
-          className="btn delBtn"
-        >
-          Delete
-        </button>
+
+      <div
+        className="shrinkButton"
+        onClick={() => props.handleTargetShrink(props.item)}
+      >
+        <i className="fas fa-chevron-up" />
       </div>
     </li>
   );

@@ -309,7 +309,7 @@ header {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 
     position: fixed;
-    top: 75px;
+    top: 25px;
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
@@ -417,6 +417,12 @@ header {
 
     .infoContainer {
       justify-content: space-evenly;
+    }
+  }
+
+  .modal {
+    .editForm {
+      top: 50px;
     }
   }
 }

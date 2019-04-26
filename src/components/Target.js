@@ -1,68 +1,5 @@
 import React from 'react';
-import ExtendedInfo from './ExtendedInfo';
-import Performance from './Performance';
-import { Route, NavLink } from 'react-router-dom';
-
-const targetDisplay = props => {
-  if (props.isMobile) {
-    return (
-      <div className="infoContainer">
-        <ul className="infoLinks">
-          <li>
-            <NavLink
-              onClick={props.handleClickedLink}
-              to="/information"
-              activeStyle={activeLinkStyle}
-            >
-              Information
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              onClick={props.handleClickedLink}
-              to="/performance"
-              activeStyle={activeLinkStyle}
-            >
-              Performance
-            </NavLink>
-          </li>
-        </ul>
-        <Route
-          path="/information"
-          render={routeProps => {
-            return (
-              <ExtendedInfo
-                item={props.item}
-                handleEditClick={props.handleEditClick}
-                handleItemDelete={props.handleItemDelete}
-                {...props}
-              />
-            );
-          }}
-        />
-
-        <Route
-          path="/performance"
-          render={routeProps => {
-            return <Performance item={props.item} {...props} />;
-          }}
-        />
-      </div>
-    );
-  } else {
-    return (
-      <div className="infoContainer">
-        <ExtendedInfo
-          item={props.item}
-          handleEditClick={props.handleEditClick}
-          handleItemDelete={props.handleItemDelete}
-          {...props}
-        />
-        <Performance item={props.item} {...props} />
-      </div>
-    );
-  }
-};
+import TargetDisplay from './TargetDisplay';
 
 const statusColor = status => {
   let bgColor;
@@ -81,13 +18,6 @@ const statusColor = status => {
   }
 
   return bgColor;
-};
-
-const activeLinkStyle = {
-  backgroundColor: 'rgba(0, 140, 255, 0.7)',
-  color: 'white',
-  padding: '5px 10px',
-  borderRadius: '20px'
 };
 
 const Target = props => {
@@ -120,7 +50,12 @@ const Target = props => {
           {props.item.company_address}
         </div>
       </div>
-      {targetDisplay(props)}
+      <TargetDisplay
+        item={props.item}
+        isMobile={props.isMobile}
+        handleEditClick={props.handleEditClick}
+        handleItemDelete={props.handleItemDelete}
+      />
       <div
         className="shrinkButton"
         onClick={() => props.handleTargetShrink(props.item)}

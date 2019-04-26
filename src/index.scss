@@ -107,10 +107,10 @@ header {
 }
 
 .target {
-  padding: 0 10px 20px 10px;
+  padding: 10px 10px 20px 10px;
   width: 100%;
   border-radius: 5px;
-  margin: 5px 0;
+  // margin: 5px 0;
   overflow: hidden;
   display: flex;
   // flex-wrap: nowrap;
@@ -153,7 +153,7 @@ header {
   .infoLinks {
     display: inherit;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
     padding: 5px 0;
     border-top: 0.5px solid rgb(193, 193, 193);
     justify-content: space-evenly;
@@ -250,7 +250,7 @@ header {
   .shrinkButton {
     display: flex;
     justify-content: center;
-    width: 98%;
+    width: 95%;
     border-radius: 5px;
 
     & > i {
@@ -272,7 +272,8 @@ header {
 .standardLi {
   height: 100px;
   animation: contractDiv 0.3s ease-in-out;
-  &:hover {
+  &:hover,
+  &:active {
     transform: scale(1.025);
     transition: transform 0.15s;
     background-color: rgba(0, 140, 255, 0.3);
@@ -283,6 +284,7 @@ header {
 
 .expandedLi {
   height: 450px;
+  padding: 10px;
   animation: expandDiv 0.3s ease-in-out;
 }
 

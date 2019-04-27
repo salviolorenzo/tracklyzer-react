@@ -1,7 +1,7 @@
 import React from 'react';
 import ExtendedInfo from './ExtendedInfo';
 import Performance from './Performance';
-import { Route, NavLink, Redirect } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import SwipeableRoutes from 'react-swipeable-routes';
 
 const targetDisplay = props => {

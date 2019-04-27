@@ -180,7 +180,6 @@ export default class App extends Component {
   closeModal() {
     this.setState({
       isEditing: false,
-      clickedItem: {},
       formValues: {
         company_name: '',
         status: '',

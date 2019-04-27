@@ -10,15 +10,19 @@ import {
 } from 'recharts';
 
 const Performance = props => {
-  const data = props.item.performance.map(object => {
-    return {
-      name: object.year,
-      uv: parseFloat(object.income.substring(1)),
-      pv: parseFloat(object.profit.substring(1))
-      // amt: Math.floor(Math.random() * 10000000)
-    };
-  });
-
+  let data;
+  if (props.item.performance) {
+    data = props.item.performance.map(object => {
+      return {
+        name: object.year,
+        uv: parseFloat(object.income.substring(1)),
+        pv: parseFloat(object.profit.substring(1))
+        // amt: Math.floor(Math.random() * 10000000)
+      };
+    });
+  } else {
+    data = [];
+  }
   return (
     <div className="performanceChart">
       <LineChart

@@ -154,6 +154,10 @@ Connect your github repository
 
 ---
 
+## Product Details
+
+---
+
 ## create-react-app Documentation
 
 ## Available Scripts

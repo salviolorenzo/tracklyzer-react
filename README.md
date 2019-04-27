@@ -120,7 +120,13 @@ This project was deployed via Netlify.com
 
 #### To deploy to Netlify
 
-- Commit and push your work
+Create a production build
+
+```
+npm build
+```
+
+Commit and push your work
 
 ```
 git add .
@@ -128,7 +134,13 @@ git commit -m "add a commit message here"
 git push
 ```
 
+Log in or sign up at _netlify.com_
+
+Connect your github repository
+
 ## Built With
+
+![React Icon](react-icon.png)
 
 - [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 - [Maven](https://maven.apache.org/) - Dependency Management

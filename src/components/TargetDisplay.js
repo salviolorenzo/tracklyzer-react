@@ -1,7 +1,7 @@
 import React from 'react';
 import ExtendedInfo from './ExtendedInfo';
 import Performance from './Performance';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Redirect } from 'react-router-dom';
 import SwipeableRoutes from 'react-swipeable-routes';
 
 const targetDisplay = props => {
@@ -37,7 +37,8 @@ const targetDisplay = props => {
         </ul>
         <SwipeableRoutes>
           <Route
-            path="/information"
+            exact
+            path="/"
             render={routeProps => {
               return (
                 <ExtendedInfo
@@ -49,8 +50,8 @@ const targetDisplay = props => {
               );
             }}
           />
-
           <Route
+            exact
             path="/performance"
             render={routeProps => {
               return <Performance item={props.item} {...props} />;

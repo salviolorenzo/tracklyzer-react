@@ -131,7 +131,8 @@ export default class App extends Component {
       main_contact_email: this.state.formValues.main_contact_email,
       secondary_contact_name: this.state.formValues.secondary_contact_name,
       secondary_contact_phone: this.state.formValues.secondary_contact_phone,
-      secondary_contact_email: this.state.formValues.secondary_contact_email
+      secondary_contact_email: this.state.formValues.secondary_contact_email,
+      performance: this.state.clickedItem.performance
     };
 
     // using for-of rather than forEach so that break syntax can be employed

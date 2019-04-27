@@ -140,7 +140,7 @@ Connect your github repository
 
 ## Built With
 
-![React Icon](react-icon.png)
+![React Icon](./react-icon.png)
 
 - [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 - [Maven](https://maven.apache.org/) - Dependency Management

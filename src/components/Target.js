@@ -34,7 +34,7 @@ const Target = props => {
     >
       <div className="basicInfo">
         <h3>
-          {props.item.company_name}
+          <span className="infoHeading">{props.item.company_name}</span>
           <span style={{ backgroundColor: statusColor(props.item.status) }}>
             {props.item.status}
           </span>

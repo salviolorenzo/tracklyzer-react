@@ -4,7 +4,9 @@ const ExtendedInfo = props => {
   return (
     <div className="extendedInfo">
       <div>
-        <h4>Main Contact</h4>
+        <h4 className="infoHeading">
+          <span>Main Contact</span>
+        </h4>
         <div>
           {props.item.main_contact_name !== ''
             ? props.item.main_contact_name
@@ -28,7 +30,9 @@ const ExtendedInfo = props => {
         </div>
       </div>
       <div>
-        <h4>Secondary Contact</h4>
+        <h4 className="infoHeading">
+          <span>Secondary Contact</span>
+        </h4>
         <div>
           {props.item.secondary_contact_name !== ''
             ? props.item.secondary_contact_name

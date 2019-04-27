@@ -156,7 +156,7 @@ Connect your github repository
 
 ## Product Details
 
-![App Screen Recording](./appSR-gif.gif)
+![App Screen Recording](./appSR-resive.gif)
 
 ---
 

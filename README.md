@@ -148,7 +148,7 @@ Connect your github repository
 
 ## Authors
 
-- **Lorenzo Salvio** [PurpleBooth](https://github.com/salviolorenzo)
+- **Lorenzo Salvio** [salviolorenzo](https://github.com/salviolorenzo) || [Portfolio](https://lorenzosalvio.com)
 
 ---
 

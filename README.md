@@ -162,10 +162,6 @@ Connect your github repository
 
 ## create-react-app Documentation
 
-## Available Scripts
-
-In the project directory, you can run:
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -187,14 +183,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ma
 ### Advanced Configuration
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 ```
 

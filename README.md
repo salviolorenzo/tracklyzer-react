@@ -148,8 +148,9 @@ Connect your github repository
 
 ## Authors
 
-- **Lorenzo Salvio**
-  [salviolorenzo](https://github.com/salviolorenzo) || [Portfolio](https://lorenzosalvio.com)
+#### **Lorenzo Salvio**
+
+[salviolorenzo](https://github.com/salviolorenzo) || [Portfolio](https://lorenzosalvio.com)
 
 ---
 

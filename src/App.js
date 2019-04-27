@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import PlacesAutoComplete, {
+  geocodeByAddress,
+  geocodeByPlaceId,
+  getLatLng
+} from 'react-places-autocomplete';
 import Header from './components/Header';
 import Main from './components/Main';
 import './App.scss';
+require('dotenv').config();
+
 const companies = require('./mockData.json');
 const uuidv1 = require('uuid/v1');
 

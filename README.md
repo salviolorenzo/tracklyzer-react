@@ -156,6 +156,8 @@ Connect your github repository
 
 ## Product Details
 
+![App Screen Recording](./appSR-fif.gif)
+
 ---
 
 ## create-react-app Documentation

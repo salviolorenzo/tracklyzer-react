@@ -150,7 +150,7 @@ Connect your github repository
 
 #### **Lorenzo Salvio**
 
-[salviolorenzo](https://github.com/salviolorenzo) || [Portfolio](https://lorenzosalvio.com)
+[GitHub](https://github.com/salviolorenzo) || [Portfolio](https://lorenzosalvio.com)
 
 ---
 

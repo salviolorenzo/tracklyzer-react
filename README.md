@@ -4,7 +4,7 @@
   - A company is looking to achieve inorganic growth through acquisitions. Develop
     an online tool to track and analyze potential target companies.
 
-### Necessary Capabilities
+#### Necessary Capabilities
 
 - Pull in and view mock data, create list items for each entry.
 - Edit a list items.
@@ -26,6 +26,12 @@ npm install
 ```
 
 ### Prerequisites
+
+- If on MacOS, I recommend installing homebrew.
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 What things you need to install the software and how to install them
 

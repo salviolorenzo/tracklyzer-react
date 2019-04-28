@@ -3,6 +3,7 @@ import closeButton from '../images/close.png';
 import LocationAutoComplete from './LocationAutoComplete';
 
 const EditForm = props => {
+  console.log(props.formValues.company_address);
   return (
     <div className={props.modalClass}>
       <form
@@ -42,9 +43,7 @@ const EditForm = props => {
         </select>
         <label className="sectionLabel">Address</label>
 
-        <LocationAutoComplete />
-
-        <input
+        <LocationAutoComplete
           type="text"
           name="company_address"
           value={props.formValues.company_address}
@@ -52,7 +51,9 @@ const EditForm = props => {
           onChange={event => {
             props.handleInputChange(event);
           }}
+          onSelect={props.handleSelect}
         />
+
         <br />
         <label className="sectionLabel">Main Contact</label>
         <label className="subLabel">Name</label>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import Header from './components/Header';
 import Main from './components/Main';
 import './App.scss';
@@ -30,7 +31,8 @@ export default class App extends Component {
         secondary_contact_phone: '',
         secondary_contact_email: ''
       },
-      isMobile: true
+      isMobile: true,
+      address: ''
     };
   }
 
@@ -102,12 +104,28 @@ export default class App extends Component {
 
   handleInputChange(event) {
     console.log(event.target.value);
-    this.setState({
-      formValues: {
-        ...this.state.formValues,
-        [event.target.name]: event.target.value
-      }
-    });
+    if (event.target.name === 'company_name') {
+      this.setState(
+        {
+          formValues: {
+            ...this.state.formValues,
+            [event.target.name]: event.target.value
+          }
+        },
+        () => {
+          this.setState({
+            address: event.target.value
+          });
+        }
+      );
+    } else {
+      this.setState({
+        formValues: {
+          ...this.state.formValues,
+          [event.target.name]: event.target.value
+        }
+      });
+    }
   }
 
   handleNewItem(event) {
@@ -127,7 +145,7 @@ export default class App extends Component {
       company_name: this.state.formValues.company_name,
       status: this.state.formValues.status,
       company_phone_number: this.state.formValues.company_phone_number,
-      company_address: this.state.formValues.company_address,
+      company_address: this.state.address,
       main_contact_name: this.state.formValues.main_contact_name,
       main_contact_phone: this.state.formValues.main_contact_phone,
       main_contact_email: this.state.formValues.main_contact_email,
@@ -199,6 +217,15 @@ export default class App extends Component {
     });
   }
 
+  //Location autocomplete methods
+
+  handleSelect = address => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => console.log('Success', latLng))
+      .catch(error => console.error('Error', error));
+  };
+
   render() {
     return (
       <Router>
@@ -220,6 +247,7 @@ export default class App extends Component {
             handleSubmit={this.handleSubmit.bind(this)}
             handleItemDelete={this.handleItemDelete.bind(this)}
             handleTargetShrink={this.handleTargetShrink.bind(this)}
+            handleSelect={this.handleSelect.bind(this)}
           />
         </div>
       </Router>

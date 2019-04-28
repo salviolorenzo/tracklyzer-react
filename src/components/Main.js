@@ -34,6 +34,7 @@ const Main = props => {
         formValues={props.formValues}
         handleInputChange={props.handleInputChange}
         handleSubmit={props.handleSubmit}
+        handleSelect={props.handleSelect}
       />
     </div>
   );

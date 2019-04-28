@@ -62,6 +62,7 @@ export default class App extends Component {
       this.state.isClicked === true &&
       this.state.clickedItem === item
     ) {
+      return;
     } else {
       this.setState({
         isClicked: !this.state.isClicked,
@@ -79,32 +80,28 @@ export default class App extends Component {
 
   handleEditClick(event) {
     event.preventDefault();
-    if (this.state.isEditing === false) {
-      this.setState({
-        isEditing: true,
-        formValues: {
-          company_name: this.state.clickedItem.company_name,
-          status: this.state.clickedItem.status,
-          company_phone_number: this.state.clickedItem.company_phone_number,
-          company_address: this.state.clickedItem.company_address,
-          main_contact_name: this.state.clickedItem.main_contact_name,
-          main_contact_phone: this.state.clickedItem.main_contact_phone,
-          main_contact_email: this.state.clickedItem.main_contact_email,
-          secondary_contact_name: this.state.clickedItem.secondary_contact_name,
-          secondary_contact_phone: this.state.clickedItem
-            .secondary_contact_phone,
-          secondary_contact_email: this.state.clickedItem
-            .secondary_contact_email
-        },
-        modalClass: 'modal',
-        modalFormClass: 'editForm'
-      });
-    }
+    this.setState({
+      isEditing: true,
+      formValues: {
+        company_name: this.state.clickedItem.company_name,
+        status: this.state.clickedItem.status,
+        company_phone_number: this.state.clickedItem.company_phone_number,
+        company_address: this.state.clickedItem.company_address,
+        main_contact_name: this.state.clickedItem.main_contact_name,
+        main_contact_phone: this.state.clickedItem.main_contact_phone,
+        main_contact_email: this.state.clickedItem.main_contact_email,
+        secondary_contact_name: this.state.clickedItem.secondary_contact_name,
+        secondary_contact_phone: this.state.clickedItem.secondary_contact_phone,
+        secondary_contact_email: this.state.clickedItem.secondary_contact_email
+      },
+      modalClass: 'modal',
+      modalFormClass: 'editForm'
+    });
   }
 
   handleInputChange(event) {
     console.log(event);
-    if (event.target === undefined) {
+    if (typeof event === 'string') {
       this.setState({
         formValues: {
           ...this.state.formValues,
@@ -128,7 +125,6 @@ export default class App extends Component {
       modalClass: 'modal',
       modalFormClass: 'editForm'
     });
-    console.log(this.state.clickedItem);
   }
 
   handleSubmit(event) {
@@ -169,7 +165,8 @@ export default class App extends Component {
 
     this.setState(
       {
-        targets: targets
+        targets: targets,
+        clickedItem: editedItem
       },
       this.closeModal()
     );

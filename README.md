@@ -145,7 +145,9 @@ Connect your github repository
 
 [GitHub](https://github.com/salviolorenzo) || [Portfolio](https://lorenzosalvio.com)
 
----
+## Acknowledgements
+
+- @hibiken - React Places AutoComplete
 
 ## Product
 

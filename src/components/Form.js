@@ -45,7 +45,7 @@ const EditForm = props => {
 
         <LocationAutoComplete
           type="text"
-          address={props.formValues.company_address}
+          company_address={props.formValues.company_address}
           handleInputChange={props.handleInputChange}
           onSelect={props.handleSelect}
         />

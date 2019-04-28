@@ -3,13 +3,13 @@
     height: 100px;
   }
   to {
-    height: 475px;
+    height: 500px;
   }
 }
 
 @keyframes contractDiv {
   from {
-    height: 475px;
+    height: 500px;
   }
   to {
     height: 100px;
@@ -147,7 +147,11 @@ header {
   }
 
   .basicInfo {
-    min-height: 100px;
+    min-height: 120px;
+
+    & > div {
+      width: 80%;
+    }
   }
 
   .infoLinks {
@@ -296,7 +300,7 @@ header {
 }
 
 .expandedLi {
-  height: 475px;
+  height: 500px;
   padding: 10px;
   animation: expandDiv 0.3s ease-in-out;
 }

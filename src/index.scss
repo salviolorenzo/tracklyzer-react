@@ -334,6 +334,9 @@ header {
     animation: slideDown 0.25s ease-in-out;
     // animation-delay: 0.25s;
 
+    .location-search-input {
+      width: 100% !important;
+    }
     h3 {
       margin: 0;
       font-size: 16px;

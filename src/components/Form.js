@@ -1,5 +1,6 @@
 import React from 'react';
 import closeButton from '../images/close.png';
+import LocationAutoComplete from './LocationAutoComplete';
 
 const EditForm = props => {
   return (
@@ -40,6 +41,9 @@ const EditForm = props => {
           <option value="Declined">Declined</option>
         </select>
         <label className="sectionLabel">Address</label>
+
+        <LocationAutoComplete />
+
         <input
           type="text"
           name="company_address"

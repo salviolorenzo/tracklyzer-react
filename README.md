@@ -17,6 +17,7 @@
 
 - Node.js
 - npm
+- Google Maps API Key
 
 ```
 brew install node
@@ -64,6 +65,18 @@ git clone git@github.com:salviolorenzo/tracklyzer-react.git
 
 ```
 npm install
+```
+
+#### Create a .env file in the root directory
+
+```
+touch .env
+```
+
+##### In the .env file:
+
+```
+REACT_APP_API_URL= https://maps.googleapis.com/maps/api/js?key={ your API key }&libraries=places
 ```
 
 #### Start the development environment

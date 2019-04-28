@@ -46,6 +46,7 @@ const EditForm = props => {
         <LocationAutoComplete
           type="text"
           name="company_address"
+          address={props.address}
           value={props.formValues.company_address}
           placeholder="1 Cedar Hill Dr, Atlanta, GA"
           onChange={event => {

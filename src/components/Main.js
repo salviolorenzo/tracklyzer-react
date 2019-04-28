@@ -27,6 +27,7 @@ const Main = props => {
         })}
       </ul>
       <EditForm
+        address={props.address}
         isEditing={props.isEditing}
         modalClass={props.modalClass}
         modalFormClass={props.modalFormClass}

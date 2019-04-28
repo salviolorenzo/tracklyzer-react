@@ -103,21 +103,15 @@ export default class App extends Component {
   }
 
   handleInputChange(event) {
-    console.log(event.target.value);
-    if (event.target.name === 'company_name') {
-      this.setState(
-        {
-          formValues: {
-            ...this.state.formValues,
-            [event.target.name]: event.target.value
-          }
+    console.log(event);
+    if (event.target === undefined) {
+      this.setState({
+        formValues: {
+          ...this.state.formValues,
+          company_address: event
         },
-        () => {
-          this.setState({
-            address: event.target.value
-          });
-        }
-      );
+        address: event
+      });
     } else {
       this.setState({
         formValues: {
@@ -145,7 +139,7 @@ export default class App extends Component {
       company_name: this.state.formValues.company_name,
       status: this.state.formValues.status,
       company_phone_number: this.state.formValues.company_phone_number,
-      company_address: this.state.address,
+      company_address: this.state.formValues.company_address,
       main_contact_name: this.state.formValues.main_contact_name,
       main_contact_phone: this.state.formValues.main_contact_phone,
       main_contact_email: this.state.formValues.main_contact_email,

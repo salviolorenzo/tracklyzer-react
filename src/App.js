@@ -13,13 +13,15 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      targets: [],
-      sorting: '',
-      isClicked: false,
-      clickedItem: {},
-      isEditing: false,
-      modalClass: 'modal noDisplay',
-      modalFormClass: 'editForm initialPosition',
+      targets: [], // list of companies pulled from json
+      sorting: '', // term for sorting companies
+      isClicked: false, // event boolean for expanding/shrinking divs onclick
+      clickedItem: {}, // which item to expand
+      isEditing: false, // event boolean for form editing
+      modalClass: 'modal noDisplay', // hides modal until state change
+      modalFormClass: 'editForm initialPosition', // hides modal until state change
+
+      // initializing form values for the modal
       formValues: {
         company_name: '',
         status: '',
@@ -32,6 +34,8 @@ export default class App extends Component {
         secondary_contact_phone: '',
         secondary_contact_email: ''
       },
+
+      // handle switch between swipeable and horizontal display in expanded divs
       isMobile: true,
       address: ''
     };
@@ -40,7 +44,6 @@ export default class App extends Component {
   componentDidMount() {
     this.resize();
     window.addEventListener('resize', this.resize.bind(this));
-
     let data = this.handleSort(companies.data);
     this.setState({
       targets: data
@@ -59,9 +62,8 @@ export default class App extends Component {
     }
   }
 
-  handleSort(array, sortBy = 'Alphabetical') {
+  handleSort(array, sortBy = 'Alphabetical', order = 'Asc') {
     let sortedArray;
-    let finalArray;
     let key;
     const statusArray = [
       'Approved',

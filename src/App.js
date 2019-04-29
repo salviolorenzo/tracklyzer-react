@@ -13,7 +13,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      targets: companies.data,
+      targets: [],
+      sorting: '',
       isClicked: false,
       clickedItem: {},
       isEditing: false,
@@ -39,6 +40,11 @@ export default class App extends Component {
   componentDidMount() {
     this.resize();
     window.addEventListener('resize', this.resize.bind(this));
+
+    let data = this.handleSort(companies.data);
+    this.setState({
+      targets: data
+    });
   }
 
   resize() {
@@ -51,6 +57,23 @@ export default class App extends Component {
         isMobile: true
       });
     }
+  }
+
+  handleSort(array, sortBy = 'company_name') {
+    const sortByArray = array.map(item => {
+      return item[sortBy];
+    });
+
+    const sortedArray = sortByArray.sort().map(item => {
+      let target = '';
+      array.forEach(object => {
+        if (object.company_name === item) {
+          target = object;
+        }
+      });
+      return target;
+    });
+    return sortedArray;
   }
 
   handleTargetClick(item) {

@@ -6,6 +6,7 @@ import SortBy from './SortBy';
 const Main = ({
   targets,
   sorting,
+  order,
   handleSortSelect,
   isClicked,
   clickedItem,
@@ -22,12 +23,18 @@ const Main = ({
   formValues,
   handleInputChange,
   handleSubmit,
-  handleSelect
+  handleSelect,
+  handleOrderSelect
 }) => {
   return (
     <div className="mainContainer">
       <h2>Inbound Leads</h2>
-      <SortBy sorting={sorting} handleSortSelect={handleSortSelect} />
+      <SortBy
+        sorting={sorting}
+        order={order}
+        handleSortSelect={handleSortSelect}
+        handleOrderSelect={handleOrderSelect}
+      />
       <ul>
         {targets.map((item, index) => {
           return (

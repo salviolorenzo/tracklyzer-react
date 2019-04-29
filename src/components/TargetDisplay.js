@@ -4,10 +4,13 @@ import Performance from './Performance';
 import { Route, NavLink } from 'react-router-dom';
 import SwipeableRoutes from 'react-swipeable-routes';
 
-const targetDisplay = (
-  props,
-  { isMobile, handleClickedLink, item, handleEditClick, handleItemDelete }
-) => {
+const targetDisplay = ({
+  isMobile,
+  handleClickedLink,
+  item,
+  handleEditClick,
+  handleItemDelete
+}) => {
   const activeLinkStyle = {
     backgroundColor: 'rgba(0, 140, 255, 0.7)',
     color: 'white',
@@ -48,7 +51,7 @@ const targetDisplay = (
                   item={item}
                   handleEditClick={handleEditClick}
                   handleItemDelete={handleItemDelete}
-                  {...props}
+                  {...routeProps}
                 />
               );
             }}
@@ -57,7 +60,7 @@ const targetDisplay = (
             exact
             path="/performance"
             render={routeProps => {
-              return <Performance item={item} {...props} />;
+              return <Performance item={item} {...routeProps} />;
             }}
           />
         </SwipeableRoutes>

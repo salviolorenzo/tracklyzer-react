@@ -103,6 +103,11 @@ header {
 
     select {
       width: 30%;
+      max-width: 150px;
+      margin-left: 10px;
+      font-size: 12px;
+      background-color: white;
+      box-shadow: 0 0 3px 0 rgba(0, 140, 255, 0.4);
       height: 100%;
       color: rgba(0, 0, 0, 0.7);
       border-top: none;

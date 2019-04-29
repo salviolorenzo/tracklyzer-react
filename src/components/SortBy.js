@@ -1,7 +1,8 @@
 import React from 'react';
 
-const SortBy = ({ sorting, handleSortSelect }) => {
-  const values = ['Sort by', 'Alphabetical', 'Status'];
+const SortBy = ({ sorting, order, handleSortSelect, handleOrderSelect }) => {
+  const sortValues = ['Sort By', 'Alphabetical', 'Status'];
+  const orderValues = ['Order By', 'Ascending', 'Descending'];
   return (
     <form className="sortBy">
       <select
@@ -10,7 +11,21 @@ const SortBy = ({ sorting, handleSortSelect }) => {
           handleSortSelect(event);
         }}
       >
-        {values.map((item, index) => {
+        {sortValues.map((item, index) => {
+          return (
+            <option key={index} value={item}>
+              {item}
+            </option>
+          );
+        })}
+      </select>
+      <select
+        value={order}
+        onChange={event => {
+          handleOrderSelect(event);
+        }}
+      >
+        {orderValues.map((item, index) => {
           return (
             <option key={index} value={item}>
               {item}

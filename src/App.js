@@ -14,7 +14,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       targets: [], // list of companies pulled from json
-      sorting: '', // term for sorting companies
+      sorting: '', // term for sorting companies,
+      order: '', // determine order of sort
       isClicked: false, // event boolean for expanding/shrinking divs onclick
       clickedItem: {}, // which item to expand
       isEditing: false, // event boolean for form editing
@@ -62,7 +63,7 @@ export default class App extends Component {
     }
   }
 
-  handleSort(array, sortBy = 'Alphabetical', order = 'Asc') {
+  handleSort(array, sortBy = 'Alphabetical', order = 'Ascending') {
     let sortedArray;
     let key;
     const statusArray = [
@@ -126,6 +127,7 @@ export default class App extends Component {
       //   ...sortedArray4
       // ];
     }
+    sortedArray = order === 'Descending' ? sortedArray.reverse() : sortedArray;
     console.log(sortedArray);
     return sortedArray;
   }
@@ -295,7 +297,29 @@ export default class App extends Component {
     let data = this.handleSort(companies.data, event.target.value);
     this.setState({
       targets: data,
-      sorting: event.target.value
+      sorting: event.target.value,
+      order: 'Ascending'
+    });
+  }
+
+  handleOrderSelect(event) {
+    let data;
+    if (this.state.sorting) {
+      data = this.handleSort(
+        companies.data,
+        this.state.sorting,
+        event.target.value
+      );
+    } else {
+      data = this.handleSort(
+        companies.data,
+        'Alphabetical',
+        event.target.value
+      );
+    }
+    this.setState({
+      targets: data,
+      order: event.target.value
     });
   }
   render() {
@@ -312,6 +336,7 @@ export default class App extends Component {
             modalFormClass={this.state.modalFormClass}
             isMobile={this.state.isMobile}
             sorting={this.state.sorting}
+            order={this.state.order}
             handleTargetClick={this.handleTargetClick.bind(this)}
             handleEditClick={this.handleEditClick.bind(this)}
             closeModal={this.closeModal.bind(this)}
@@ -322,6 +347,7 @@ export default class App extends Component {
             handleTargetShrink={this.handleTargetShrink.bind(this)}
             handleSelect={this.handleSelect.bind(this)}
             handleSortSelect={this.handleSortSelect.bind(this)}
+            handleOrderSelect={this.handleOrderSelect.bind(this)}
           />
         </div>
       </Router>

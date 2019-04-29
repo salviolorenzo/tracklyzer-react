@@ -61,7 +61,14 @@ export default class App extends Component {
 
   handleSort(array, sortBy = 'Alphabetical') {
     let sortedArray;
+    let finalArray;
     let key;
+    const statusArray = [
+      'Approved',
+      'Pending Approval',
+      'Researching',
+      'Declined'
+    ];
     switch (sortBy) {
       case 'Alphabetical':
         key = 'company_name';
@@ -73,11 +80,16 @@ export default class App extends Component {
         key = 'company_name';
         break;
     }
-    const sortByArray = array.map(item => {
-      return item[key];
+    let sortByArray = array.map(item => {
+      return { id: item.id, param: item[key] };
     });
 
     if (sortBy === 'Alphabetical') {
+      sortByArray = sortByArray.map(item => {
+        return item.param;
+      });
+      console.log(sortByArray);
+
       sortedArray = sortByArray.sort().map(item => {
         let target = '';
         array.forEach(object => {
@@ -88,8 +100,31 @@ export default class App extends Component {
         return target;
       });
     } else if ((sortBy = 'Status')) {
-      sortedArray = '';
+      sortedArray = statusArray
+        .map(status => {
+          let objectArray = sortByArray.filter(item => item.param === status);
+          return objectArray;
+        })
+        .flat();
+
+      let target = '';
+      sortedArray = sortedArray.map(item => {
+        array.forEach(object => {
+          if (object.id === item.id) {
+            target = object;
+          }
+        });
+        return target;
+      });
+
+      // sortedArray = [
+      //   ...sortedArray1,
+      //   ...sortedArray2,
+      //   ...sortedArray3,
+      //   ...sortedArray4
+      // ];
     }
+    console.log(sortedArray);
     return sortedArray;
   }
 
@@ -258,8 +293,9 @@ export default class App extends Component {
   };
 
   handleSortSelect(event) {
-    console.log(event.target.value);
+    let data = this.handleSort(companies.data, event.target.value);
     this.setState({
+      targets: data,
       sorting: event.target.value
     });
   }

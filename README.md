@@ -1,5 +1,9 @@
 # Tracklyzer
 
+## Product
+
+![App Screen Recording](./appSR-resize.gif) ![Desktop Screen Recording](./desktopSR-resize.gif)
+
 - The purpose of this challenge is to create a front-end application that helps to solve the following business problem:
   - A company is looking to achieve inorganic growth through acquisitions. Develop
     an online tool to track and analyze potential target companies.
@@ -18,11 +22,6 @@
 - Node.js
 - npm
 - Google Maps API Key
-
-```
-brew install node
-
-```
 
 ### Installing
 
@@ -148,7 +147,5 @@ Connect your github repository
 ## Acknowledgements
 
 - @hibiken - React Places AutoComplete
-
-## Product
-
-![App Screen Recording](./appSR-resize.gif) ![Desktop Screen Recording](./desktopSR-resize.gif)
+- @arcthur - Recharts
+- @sanfilippopablo - React Swipeable Routes

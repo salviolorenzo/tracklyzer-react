@@ -129,14 +129,11 @@ export default class App extends Component {
   }
 
   handleTargetClick(item) {
-    if (this.state.isClicked === true && this.state.clickedItem !== item) {
+    if (this.state.isClicked && this.state.clickedItem !== item) {
       this.setState({
         clickedItem: item
       });
-    } else if (
-      this.state.isClicked === true &&
-      this.state.clickedItem === item
-    ) {
+    } else if (this.state.isClicked && this.state.clickedItem === item) {
       return;
     } else {
       this.setState({

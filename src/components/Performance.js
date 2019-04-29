@@ -1,10 +1,10 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
-const Performance = props => {
+const Performance = ({ item }) => {
   let data;
-  if (props.item.performance) {
-    data = props.item.performance.map(object => {
+  if (item.performance) {
+    data = item.performance.map(object => {
       return {
         name: object.year,
         uv: parseFloat(object.income.substring(1)),

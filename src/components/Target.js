@@ -28,46 +28,53 @@ const statusColor = status => {
   return bgColor;
 };
 
-const Target = props => {
+const Target = ({
+  handleTargetClick,
+  index,
+  isClicked,
+  clickedItem,
+  item,
+  isMobile,
+  handleEditClick,
+  handleItemDelete,
+  handleTargetShrink
+}) => {
   return (
     <li
       onClick={() => {
-        props.handleTargetClick(props.item, props.index);
+        handleTargetClick(item, index);
       }}
       className={
-        props.isClicked && props.item.id === props.clickedItem.id
+        isClicked && item.id === clickedItem.id
           ? 'target expandedLi'
           : 'target standardLi'
       }
     >
       <div className="basicInfo">
         <h3>
-          <span className="infoHeading">{props.item.company_name}</span>
-          <span style={{ backgroundColor: statusColor(props.item.status) }}>
-            {props.item.status}
+          <span className="infoHeading">{item.company_name}</span>
+          <span style={{ backgroundColor: statusColor(item.status) }}>
+            {item.status}
           </span>
         </h3>
         <div>
-          <a href={`tel:${props.item.company_phone_number}`}>
+          <a href={`tel:${item.company_phone_number}`}>
             <i className="icons fas fa-mobile-alt" />
-            {props.item.company_phone_number}
+            {item.company_phone_number}
           </a>
         </div>
         <div>
           <i className="icons fas fa-search-location" />
-          {props.item.company_address}
+          {item.company_address}
         </div>
       </div>
       <TargetDisplay
-        item={props.item}
-        isMobile={props.isMobile}
-        handleEditClick={props.handleEditClick}
-        handleItemDelete={props.handleItemDelete}
+        item={item}
+        isMobile={isMobile}
+        handleEditClick={handleEditClick}
+        handleItemDelete={handleItemDelete}
       />
-      <div
-        className="shrinkButton"
-        onClick={() => props.handleTargetShrink(props.item)}
-      >
+      <div className="shrinkButton" onClick={() => handleTargetShrink(item)}>
         <i className="fas fa-chevron-up" />
       </div>
     </li>

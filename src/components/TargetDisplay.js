@@ -4,7 +4,10 @@ import Performance from './Performance';
 import { Route, NavLink } from 'react-router-dom';
 import SwipeableRoutes from 'react-swipeable-routes';
 
-const targetDisplay = props => {
+const targetDisplay = (
+  props,
+  { isMobile, handleClickedLink, item, handleEditClick, handleItemDelete }
+) => {
   const activeLinkStyle = {
     backgroundColor: 'rgba(0, 140, 255, 0.7)',
     color: 'white',
@@ -12,13 +15,13 @@ const targetDisplay = props => {
     borderRadius: '20px'
   };
 
-  if (props.isMobile) {
+  if (isMobile) {
     return (
       <div className="infoContainer">
         <ul className="infoLinks">
           <li>
             <NavLink
-              onClick={props.handleClickedLink}
+              onClick={handleClickedLink}
               to="/information"
               activeStyle={activeLinkStyle}
             >
@@ -27,7 +30,7 @@ const targetDisplay = props => {
           </li>
           <li>
             <NavLink
-              onClick={props.handleClickedLink}
+              onClick={handleClickedLink}
               to="/performance"
               activeStyle={activeLinkStyle}
             >
@@ -42,9 +45,9 @@ const targetDisplay = props => {
             render={routeProps => {
               return (
                 <ExtendedInfo
-                  item={props.item}
-                  handleEditClick={props.handleEditClick}
-                  handleItemDelete={props.handleItemDelete}
+                  item={item}
+                  handleEditClick={handleEditClick}
+                  handleItemDelete={handleItemDelete}
                   {...props}
                 />
               );
@@ -54,7 +57,7 @@ const targetDisplay = props => {
             exact
             path="/performance"
             render={routeProps => {
-              return <Performance item={props.item} {...props} />;
+              return <Performance item={item} {...props} />;
             }}
           />
         </SwipeableRoutes>
@@ -64,11 +67,11 @@ const targetDisplay = props => {
     return (
       <div className="infoContainer">
         <ExtendedInfo
-          item={props.item}
-          handleEditClick={props.handleEditClick}
-          handleItemDelete={props.handleItemDelete}
+          item={item}
+          handleEditClick={handleEditClick}
+          handleItemDelete={handleItemDelete}
         />
-        <Performance item={props.item} />
+        <Performance item={item} />
       </div>
     );
   }

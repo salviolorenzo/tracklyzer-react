@@ -2,37 +2,46 @@ import React from 'react';
 import closeButton from '../images/close.png';
 import LocationAutoComplete from './LocationAutoComplete';
 
-const EditForm = props => {
-  console.log(props.formValues.company_address);
+const EditForm = ({
+  formValues,
+  modalClass,
+  modalFormClass,
+  handleSubmit,
+  isEditing,
+  closeModal,
+  handleInputChange,
+  handleSelect
+}) => {
+  console.log(formValues.company_address);
   return (
-    <div className={props.modalClass}>
+    <div className={modalClass}>
       <form
-        className={props.modalFormClass}
+        className={modalFormClass}
         onSubmit={event => {
-          props.handleSubmit(event);
+          handleSubmit(event);
         }}
       >
         <div className="modalHeader">
-          <h3>{props.isEditing ? 'Edit Lead' : 'New Lead'}</h3>
-          <img onClick={props.closeModal} src={closeButton} alt="Close Modal" />
+          <h3>{isEditing ? 'Edit Lead' : 'New Lead'}</h3>
+          <img onClick={closeModal} src={closeButton} alt="Close Modal" />
         </div>
         <label className="sectionLabel">Company Name</label>
         <input
           type="text"
           name="company_name"
-          value={props.formValues.company_name}
+          value={formValues.company_name}
           placeholder=""
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         />
         <label className="sectionLabel">Status</label>
         <select
           name="status"
-          value={props.formValues.status}
+          value={formValues.status}
           placeholder="Status"
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         >
           <option value="" />
@@ -45,9 +54,9 @@ const EditForm = props => {
 
         <LocationAutoComplete
           type="text"
-          company_address={props.formValues.company_address}
-          handleInputChange={props.handleInputChange}
-          onSelect={props.handleSelect}
+          company_address={formValues.company_address}
+          handleInputChange={handleInputChange}
+          onSelect={handleSelect}
         />
 
         <br />
@@ -56,30 +65,30 @@ const EditForm = props => {
         <input
           type="text"
           name="main_contact_name"
-          value={props.formValues.main_contact_name}
+          value={formValues.main_contact_name}
           placeholder="John Smith"
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         />
         <label className="subLabel">Phone</label>
         <input
           type="text"
           name="main_contact_phone"
-          value={props.formValues.main_contact_phone}
+          value={formValues.main_contact_phone}
           placeholder="(000)-000-0000"
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         />
         <label className="subLabel">Email</label>
         <input
           type="text"
           name="main_contact_email"
-          value={props.formValues.main_contact_email}
+          value={formValues.main_contact_email}
           placeholder="johnsmith@email.com"
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         />
         <br />
@@ -89,30 +98,30 @@ const EditForm = props => {
         <input
           type="text"
           name="secondary_contact_name"
-          value={props.formValues.secondary_contact_name}
+          value={formValues.secondary_contact_name}
           placeholder="John Smith"
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         />
         <label className="subLabel">Phone</label>
         <input
           type="text"
           name="secondary_contact_phone"
-          value={props.formValues.secondary_contact_phone}
+          value={formValues.secondary_contact_phone}
           placeholder="(000)-000-0000"
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         />
         <label className="subLabel">Email</label>
         <input
           type="text"
           name="secondary_contact_email"
-          value={props.formValues.secondary_contact_email}
+          value={formValues.secondary_contact_email}
           placeholder="johnsmith@email.com"
           onChange={event => {
-            props.handleInputChange(event);
+            handleInputChange(event);
           }}
         />
         <button type="submit">Save</button>

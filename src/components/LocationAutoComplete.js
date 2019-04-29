@@ -1,16 +1,19 @@
 import React from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
 
-const LocationAutoComplete = props => {
-  console.log(props);
+const LocationAutoComplete = ({
+  company_address,
+  handleInputChange,
+  handleSelect
+}) => {
   return (
     <PlacesAutocomplete
       name="company_address"
-      value={props.company_address ? props.company_address : ''}
+      value={company_address ? company_address : ''}
       onChange={event => {
-        props.handleInputChange(event);
+        handleInputChange(event);
       }}
-      onSelect={props.handleSelect}
+      onSelect={handleSelect}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <>

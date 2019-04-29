@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExtendedInfo = props => {
+const ExtendedInfo = ({ item, handleEditClick, handleItemDelete }) => {
   return (
     <div className="extendedInfo">
       <div>
@@ -8,24 +8,18 @@ const ExtendedInfo = props => {
           <span>Main Contact</span>
         </h4>
         <div>
-          {props.item.main_contact_name !== ''
-            ? props.item.main_contact_name
-            : 'N/A'}
+          {item.main_contact_name !== '' ? item.main_contact_name : 'N/A'}
         </div>
         <div>
-          <a href={`tel:${props.item.main_contact_phone}`}>
+          <a href={`tel:${item.main_contact_phone}`}>
             <i className="icons fas fa-mobile-alt" />
-            {props.item.main_contact_phone !== ''
-              ? props.item.main_contact_phone
-              : 'N/A'}
+            {item.main_contact_phone !== '' ? item.main_contact_phone : 'N/A'}
           </a>
         </div>
         <div>
-          <a href={`mailto:${props.item.main_contact_email}`}>
+          <a href={`mailto:${item.main_contact_email}`}>
             <i className="icons fas fa-at" />
-            {props.item.main_contact_email !== ''
-              ? props.item.main_contact_email
-              : 'N/A'}
+            {item.main_contact_email !== '' ? item.main_contact_email : 'N/A'}
           </a>
         </div>
       </div>
@@ -34,21 +28,21 @@ const ExtendedInfo = props => {
           <span>Secondary Contact</span>
         </h4>
         <div>
-          {props.item.secondary_contact_name !== ''
-            ? props.item.secondary_contact_name
+          {item.secondary_contact_name !== ''
+            ? item.secondary_contact_name
             : 'N/A'}
         </div>
         <div>
-          <a href={`tel:${props.item.main_contact_phone}`}>
+          <a href={`tel:${item.main_contact_phone}`}>
             <i className="icons fas fa-mobile-alt" />
-            {props.item.secondary_contact_phone}
+            {item.secondary_contact_phone}
           </a>
         </div>
         <div>
-          <a href={`mailto:${props.item.secondary_contact_email}`}>
+          <a href={`mailto:${item.secondary_contact_email}`}>
             <i className="icons fas fa-at" />
-            {props.item.secondary_contact_email !== ''
-              ? props.item.secondary_contact_email
+            {item.secondary_contact_email !== ''
+              ? item.secondary_contact_email
               : 'N/A'}
           </a>
         </div>
@@ -56,7 +50,7 @@ const ExtendedInfo = props => {
       <div className="buttonContainer">
         <button
           onClick={event => {
-            props.handleEditClick(event);
+            handleEditClick(event);
           }}
           type="button"
           className="btn editBtn"
@@ -65,7 +59,7 @@ const ExtendedInfo = props => {
         </button>
         <button
           onClick={event => {
-            props.handleItemDelete(event);
+            handleItemDelete(event);
           }}
           type="button"
           className="btn delBtn"

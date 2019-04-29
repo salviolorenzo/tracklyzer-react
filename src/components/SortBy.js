@@ -1,13 +1,13 @@
 import React from 'react';
 
-const SortBy = props => {
+const SortBy = ({ sorting, handleSortSelect }) => {
   const values = ['Sort by', 'Alphabetical', 'Status'];
   return (
     <form className="sortBy">
       <select
-        value={props.sorting}
+        value={sorting}
         onChange={event => {
-          props.handleSortSelect(event);
+          handleSortSelect(event);
         }}
       >
         {values.map((item, index) => {

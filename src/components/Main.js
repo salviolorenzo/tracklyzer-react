@@ -3,44 +3,61 @@ import Target from './Target';
 import EditForm from './Form';
 import SortBy from './SortBy';
 
-const Main = props => {
+const Main = ({
+  targets,
+  sorting,
+  handleSortSelect,
+  isClicked,
+  clickedItem,
+  isEditing,
+  isMobile,
+  handleEditClick,
+  handleItemDelete,
+  handleTargetShrink,
+  handleTargetClick,
+  address,
+  modalClass,
+  modalFormClass,
+  closeModal,
+  formValues,
+  handleInputChange,
+  handleSubmit,
+  handleSelect
+}) => {
   return (
     <div className="mainContainer">
       <h2>Inbound Leads</h2>
-      <SortBy
-        sorting={props.sorting}
-        handleSortSelect={props.handleSortSelect}
-      />
+      <SortBy sorting={sorting} handleSortSelect={handleSortSelect} />
       <ul>
-        {props.targets.map((item, index) => {
+        {targets.map((item, index) => {
           return (
             <Target
               key={index}
               item={item}
-              isClicked={props.isClicked}
-              clickedItem={props.clickedItem}
-              isEditing={props.isEditing}
-              isMobile={props.isMobile}
-              handleEditClick={props.handleEditClick}
+              isClicked={isClicked}
+              clickedItem={clickedItem}
+              isEditing={isEditing}
+              isMobile={isMobile}
+              handleEditClick={handleEditClick}
               handleTargetClick={(item, index) => {
-                props.handleTargetClick(item, index);
+                handleTargetClick(item, index);
               }}
-              handleItemDelete={props.handleItemDelete}
-              handleTargetShrink={props.handleTargetShrink}
+              handleItemDelete={handleItemDelete}
+              handleTargetShrink={handleTargetShrink}
             />
           );
         })}
       </ul>
       <EditForm
-        address={props.address}
-        isEditing={props.isEditing}
-        modalClass={props.modalClass}
-        modalFormClass={props.modalFormClass}
-        closeModal={props.closeModal}
-        formValues={props.formValues}
-        handleInputChange={props.handleInputChange}
-        handleSubmit={props.handleSubmit}
-        handleSelect={props.handleSelect}
+        address={address}
+        isEditing={isEditing}
+        modalClass={modalClass}
+        modalFormClass={modalFormClass}
+        closeModal={closeModal}
+        formValues={formValues}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        handleSelect={handleSelect}
       />
     </div>
   );

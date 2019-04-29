@@ -94,6 +94,24 @@ header {
   flex-direction: column;
   align-items: center;
 
+  .sortBy {
+    width: 90%;
+    min-height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 5px 20px 5px;
+
+    select {
+      width: 30%;
+      height: 100%;
+      color: rgba(0, 0, 0, 0.7);
+      border-top: none;
+      border-right: none;
+      border-left: 0.5px solid rgb(0, 140, 255);
+      border-bottom: 0.5px solid rgb(0, 140, 255);
+    }
+  }
+
   ul {
     list-style-type: none;
     padding: 0;

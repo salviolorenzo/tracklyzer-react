@@ -1,11 +1,16 @@
 import React from 'react';
 import Target from './Target';
 import EditForm from './Form';
+import SortBy from './SortBy';
 
 const Main = props => {
   return (
     <div className="mainContainer">
       <h2>Inbound Leads</h2>
+      <SortBy
+        sorting={props.sorting}
+        handleSortSelect={props.handleSortSelect}
+      />
       <ul>
         {props.targets.map((item, index) => {
           return (

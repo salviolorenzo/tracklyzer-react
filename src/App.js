@@ -59,20 +59,37 @@ export default class App extends Component {
     }
   }
 
-  handleSort(array, sortBy = 'company_name') {
+  handleSort(array, sortBy = 'Alphabetical') {
+    let sortedArray;
+    let key;
+    switch (sortBy) {
+      case 'Alphabetical':
+        key = 'company_name';
+        break;
+      case 'Status':
+        key = 'status';
+        break;
+      default:
+        key = 'company_name';
+        break;
+    }
     const sortByArray = array.map(item => {
-      return item[sortBy];
+      return item[key];
     });
 
-    const sortedArray = sortByArray.sort().map(item => {
-      let target = '';
-      array.forEach(object => {
-        if (object.company_name === item) {
-          target = object;
-        }
+    if (sortBy === 'Alphabetical') {
+      sortedArray = sortByArray.sort().map(item => {
+        let target = '';
+        array.forEach(object => {
+          if (object.company_name === item) {
+            target = object;
+          }
+        });
+        return target;
       });
-      return target;
-    });
+    } else if ((sortBy = 'Status')) {
+      sortedArray = '';
+    }
     return sortedArray;
   }
 
@@ -240,6 +257,12 @@ export default class App extends Component {
       .catch(error => console.error('Error', error));
   };
 
+  handleSortSelect(event) {
+    console.log(event.target.value);
+    this.setState({
+      sorting: event.target.value
+    });
+  }
   render() {
     return (
       <Router>
@@ -253,6 +276,7 @@ export default class App extends Component {
             modalClass={this.state.modalClass}
             modalFormClass={this.state.modalFormClass}
             isMobile={this.state.isMobile}
+            sorting={this.state.sorting}
             handleTargetClick={this.handleTargetClick.bind(this)}
             handleEditClick={this.handleEditClick.bind(this)}
             closeModal={this.closeModal.bind(this)}
@@ -262,6 +286,7 @@ export default class App extends Component {
             handleItemDelete={this.handleItemDelete.bind(this)}
             handleTargetShrink={this.handleTargetShrink.bind(this)}
             handleSelect={this.handleSelect.bind(this)}
+            handleSortSelect={this.handleSortSelect.bind(this)}
           />
         </div>
       </Router>

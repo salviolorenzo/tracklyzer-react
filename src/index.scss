@@ -143,7 +143,10 @@ header {
   }
 
   h2 {
-    margin: 15px 0;
+    text-align: center;
+    margin: 15px 0 10px 0;
+    padding: 0 2px 5px 2px;
+    border-bottom: 3px solid rgb(0, 140, 255);
   }
 }
 

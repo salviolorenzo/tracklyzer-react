@@ -13,7 +13,7 @@ const statusColor = status => {
       break;
 
     case 'Researching':
-      bgColor = 'rgba(30, 30, 255, 0.7)';
+      bgColor = 'rgba(14, 98, 167, 0.7)';
       break;
 
     case 'Pending Approval':

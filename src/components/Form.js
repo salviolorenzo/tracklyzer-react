@@ -51,14 +51,12 @@ const EditForm = ({
           <option value="Declined">Declined</option>
         </select>
         <label className="sectionLabel">Address</label>
-
         <LocationAutoComplete
           type="text"
           company_address={formValues.company_address}
           handleInputChange={handleInputChange}
           onSelect={handleSelect}
         />
-
         <br />
         <label className="sectionLabel">Main Contact</label>
         <label className="subLabel">Name</label>

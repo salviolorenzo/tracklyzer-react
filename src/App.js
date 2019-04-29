@@ -79,6 +79,9 @@ export default class App extends Component {
       case 'Status':
         key = 'status';
         break;
+      case 'Sort By':
+        key = 'company_name';
+        break;
       default:
         key = 'company_name';
         break;
@@ -87,7 +90,7 @@ export default class App extends Component {
       return { id: item.id, param: item[key] };
     });
 
-    if (sortBy === 'Alphabetical') {
+    if (sortBy === 'Alphabetical' || sortBy === 'Sort By') {
       sortByArray = sortByArray.map(item => {
         return item.param;
       });
@@ -182,8 +185,7 @@ export default class App extends Component {
         formValues: {
           ...this.state.formValues,
           company_address: event
-        },
-        address: event
+        }
       });
     } else {
       this.setState({
@@ -298,7 +300,7 @@ export default class App extends Component {
     this.setState({
       targets: data,
       sorting: event.target.value,
-      order: 'Ascending'
+      order: this.state.order === '' ? 'Ascending' : this.state.order
     });
   }
 
@@ -319,6 +321,7 @@ export default class App extends Component {
     }
     this.setState({
       targets: data,
+      sorting: this.state.sorting === '' ? 'Alphabetical' : this.state.sorting,
       order: event.target.value
     });
   }

@@ -57,7 +57,6 @@ const EditForm = ({
           handleInputChange={handleInputChange}
           onSelect={handleSelect}
         />
-        <br />
         <label className="sectionLabel">Main Contact</label>
         <label className="subLabel">Name</label>
         <input

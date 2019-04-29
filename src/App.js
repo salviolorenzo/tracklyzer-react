@@ -51,6 +51,7 @@ export default class App extends Component {
     });
   }
 
+  // editing the target display type depending on screen size
   resize() {
     if (window.innerWidth > 600) {
       this.setState({
@@ -63,6 +64,7 @@ export default class App extends Component {
     }
   }
 
+  // set the order in which companies are displayed
   handleSort(array, sortBy = 'Alphabetical', order = 'Ascending') {
     let sortedArray;
     let key;
@@ -94,7 +96,6 @@ export default class App extends Component {
       sortByArray = sortByArray.map(item => {
         return item.param;
       });
-      console.log(sortByArray);
 
       sortedArray = sortByArray.sort().map(item => {
         let target = '';
@@ -135,6 +136,7 @@ export default class App extends Component {
     return sortedArray;
   }
 
+  // determining which target should be expanded
   handleTargetClick(item) {
     if (this.state.isClicked && this.state.clickedItem !== item) {
       this.setState({
@@ -150,6 +152,7 @@ export default class App extends Component {
     }
   }
 
+  // shrink the expanded target on click
   handleTargetShrink(item) {
     this.setState({
       isClicked: !this.state.isClicked,
@@ -157,6 +160,7 @@ export default class App extends Component {
     });
   }
 
+  // opening the modal and filling the form values to edit
   handleEditClick(event) {
     event.preventDefault();
     this.setState({
@@ -178,6 +182,7 @@ export default class App extends Component {
     });
   }
 
+  // handle text change / google places api input
   handleInputChange(event) {
     console.log(event);
     if (typeof event === 'string') {
@@ -197,6 +202,7 @@ export default class App extends Component {
     }
   }
 
+  // open modal with blank form to add new target
   handleNewItem(event) {
     event.preventDefault();
     this.setState({
@@ -205,6 +211,7 @@ export default class App extends Component {
     });
   }
 
+  // save the item being edited
   handleSubmit(event) {
     event.preventDefault();
     let targets = this.state.targets;
@@ -250,6 +257,7 @@ export default class App extends Component {
     );
   }
 
+  // remove list item on click
   handleItemDelete(event) {
     event.preventDefault();
     let targets = this.state.targets;
@@ -266,6 +274,7 @@ export default class App extends Component {
     });
   }
 
+  // reset modal variables
   closeModal() {
     this.setState({
       isEditing: false,
@@ -288,6 +297,7 @@ export default class App extends Component {
 
   //Location autocomplete methods
 
+  // react-places-autocomplete select function
   handleSelect = address => {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
@@ -295,6 +305,7 @@ export default class App extends Component {
       .catch(error => console.error('Error', error));
   };
 
+  // editing sorting criteria and order
   handleSortSelect(event) {
     let data = this.handleSort(companies.data, event.target.value);
     this.setState({

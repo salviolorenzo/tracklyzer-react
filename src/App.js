@@ -343,7 +343,7 @@ export default class App extends Component {
     var script = window.document.createElement('script');
     script.src = src;
     script.async = true;
-    ref.parentNode.insertBefore(script, ref);
+    ref.parentNode.insertAfter(script, ref);
   }
 
   render() {

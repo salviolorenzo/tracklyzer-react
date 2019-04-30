@@ -194,12 +194,21 @@ export default class App extends Component {
         }
       });
     } else {
-      this.setState({
-        formValues: {
-          ...this.state.formValues,
-          [event.target.name]: event.target.value
-        }
-      });
+      if (event.target) {
+        this.setState({
+          formValues: {
+            ...this.state.formValues,
+            [event.target.name]: event.target.value
+          }
+        });
+      } else {
+        this.setState({
+          formValues: {
+            ...this.state.formValues,
+            company_address: event
+          }
+        });
+      }
     }
   }
 

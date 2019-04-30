@@ -43,6 +43,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    this.loadJS(process.env.REACT_APP_API_URL);
     this.resize();
     window.addEventListener('resize', this.resize.bind(this));
     let data = this.handleSort(companies.data);
@@ -336,6 +337,15 @@ export default class App extends Component {
       order: event.target.value
     });
   }
+
+  loadJS(src) {
+    var ref = window.document.getElementsByTagName('script')[0];
+    var script = window.document.createElement('script');
+    script.src = src;
+    script.async = true;
+    ref.parentNode.insertBefore(script, ref);
+  }
+
   render() {
     return (
       <Router>

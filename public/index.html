@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      window.myCallbackFunc = function() {
+        window.initOne && window.initOne();
+      };
+    </script>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <script src="%REACT_APP_API_URL%"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Noto+Sans"
       rel="stylesheet"

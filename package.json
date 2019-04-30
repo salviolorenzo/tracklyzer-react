@@ -1,7 +1,7 @@
 {
   "name": "insiten-challenge-react",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "dotenv": "^7.0.0",
     "node-sass": "^4.11.0",

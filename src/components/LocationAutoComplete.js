@@ -14,6 +14,7 @@ const LocationAutoComplete = ({
         handleInputChange(event);
       }}
       onSelect={handleSelect}
+      googleCallbackName="myCallbackFunc"
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <>

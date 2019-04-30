@@ -233,8 +233,6 @@ export default class App extends Component {
 
     // using for-of rather than forEach so that break syntax can be employed
     for (let target of targets) {
-      console.log(target);
-      console.log(editedItem);
       if (target.id === editedItem.id) {
         targets.splice(targets.indexOf(target), 1, editedItem);
       } else if (target.id !== editedItem.id && !this.state.isEditing) {

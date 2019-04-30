@@ -19,7 +19,8 @@ const LocationAutoComplete = ({
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <>
           <input
-            name="company_address"
+            type="text"
+            autoComplete="On"
             {...getInputProps({
               placeholder: '1 Cedar Hill Dr, Atlanta, GA',
               className: 'location-search-input'

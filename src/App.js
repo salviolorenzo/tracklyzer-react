@@ -194,21 +194,12 @@ export default class App extends Component {
         }
       });
     } else {
-      if (event.target) {
-        this.setState({
-          formValues: {
-            ...this.state.formValues,
-            [event.target.name]: event.target.value
-          }
-        });
-      } else {
-        this.setState({
-          formValues: {
-            ...this.state.formValues,
-            company_address: event
-          }
-        });
-      }
+      this.setState({
+        formValues: {
+          ...this.state.formValues,
+          [event.target.name]: event.target.value
+        }
+      });
     }
   }
 
@@ -242,9 +233,11 @@ export default class App extends Component {
 
     // using for-of rather than forEach so that break syntax can be employed
     for (let target of targets) {
+      console.log(target);
+      console.log(editedItem);
       if (target.id === editedItem.id) {
         targets.splice(targets.indexOf(target), 1, editedItem);
-      } else if (targets.indexOf(editedItem) === -1) {
+      } else if (target.id !== editedItem.id && !this.state.isEditing) {
         targets.push(editedItem);
         break;
       }

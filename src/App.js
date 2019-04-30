@@ -340,10 +340,10 @@ export default class App extends Component {
 
   loadJS(src) {
     var ref = window.document.getElementsByTagName('script')[0];
-    console.log(ref);
     var script = window.document.createElement('script');
     script.src = src;
     script.async = true;
+    script.defer = true;
     ref.parentNode.insertBefore(script, ref);
   }
 

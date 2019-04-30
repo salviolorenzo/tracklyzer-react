@@ -339,11 +339,12 @@ export default class App extends Component {
   }
 
   loadJS(src) {
-    var ref = window.document.getElementsByTagName('script')[0];
+    var ref = window.document.getElementsByTagName('script')[1];
+    console.log(ref);
     var script = window.document.createElement('script');
     script.src = src;
     script.async = true;
-    ref.parentNode.insertAfter(script, ref);
+    ref.parentNode.insertBefore(script, ref);
   }
 
   render() {

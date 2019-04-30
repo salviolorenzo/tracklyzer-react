@@ -339,7 +339,7 @@ export default class App extends Component {
   }
 
   loadJS(src) {
-    var ref = window.document.getElementsByTagName('script')[1];
+    var ref = window.document.getElementsByTagName('script')[0];
     console.log(ref);
     var script = window.document.createElement('script');
     script.src = src;

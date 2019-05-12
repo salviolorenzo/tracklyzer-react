@@ -73,7 +73,8 @@ export default class App extends Component {
       'Approved',
       'Pending Approval',
       'Researching',
-      'Declined'
+      'Declined',
+      undefined
     ];
     switch (sortBy) {
       case 'Alphabetical':
@@ -114,6 +115,7 @@ export default class App extends Component {
           return objectArray;
         })
         .flat();
+      console.log(sortedArray);
 
       let target = '';
       sortedArray = sortedArray.map(item => {
@@ -219,7 +221,9 @@ export default class App extends Component {
     const editedItem = {
       id: this.state.isEditing ? this.state.clickedItem.id : uuidv1(), //normally this would be handled by the DB id incrementing. UUID is used in place of it for the front-end only assignment
       company_name: this.state.formValues.company_name,
-      status: this.state.formValues.status,
+      status: this.state.formValues.status
+        ? this.state.formValues.status
+        : undefined,
       company_phone_number: this.state.formValues.company_phone_number,
       company_address: this.state.formValues.company_address,
       main_contact_name: this.state.formValues.main_contact_name,
@@ -230,6 +234,17 @@ export default class App extends Component {
       secondary_contact_email: this.state.formValues.secondary_contact_email,
       performance: this.state.clickedItem.performance
     };
+
+    for (let target of targets) {
+      if (
+        target.company_name === editedItem.company_name &&
+        target.id !== editedItem.id
+      ) {
+        alert('Duplicate name');
+        this.closeModal();
+        return;
+      }
+    }
 
     // using for-of rather than forEach so that break syntax can be employed
     for (let target of targets) {
@@ -308,32 +323,29 @@ export default class App extends Component {
 
   // editing sorting criteria and order
   handleSortSelect(event) {
-    let data = this.handleSort(companies.data, event.target.value);
+    let targets = this.state.targets;
+    let data = this.handleSort(targets, event.target.value);
+    let order = this.state.order;
     this.setState({
       targets: data,
       sorting: event.target.value,
-      order: this.state.order === '' ? 'Ascending' : this.state.order
+      order: order === '' ? 'Ascending' : order
     });
   }
 
   handleOrderSelect(event) {
     let data;
+    let targets = this.state.targets;
+    let sorting = this.state.sorting;
+
     if (this.state.sorting) {
-      data = this.handleSort(
-        companies.data,
-        this.state.sorting,
-        event.target.value
-      );
+      data = this.handleSort(targets, sorting, event.target.value);
     } else {
-      data = this.handleSort(
-        companies.data,
-        'Alphabetical',
-        event.target.value
-      );
+      data = this.handleSort(targets, 'Alphabetical', event.target.value);
     }
     this.setState({
       targets: data,
-      sorting: this.state.sorting === '' ? 'Alphabetical' : this.state.sorting,
+      sorting: sorting === '' ? 'Alphabetical' : sorting,
       order: event.target.value
     });
   }
